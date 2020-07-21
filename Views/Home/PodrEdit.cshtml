@@ -1,0 +1,40 @@
+﻿@model UchetAuto.Models.Podrazd
+<div class="modal-header">
+    <h5> Редактирование подразделения</h5>
+</div>
+<div class="modal-body">
+
+    <label>ID записи</label>
+    <input type="text" class="form-control btn-block" id="ID" value="@Model.IDPodr" />
+
+    <label>Тип топлива</label>
+    <input type="text" class="form-control btn-block" id="Podrazd" value="@Model.Podrazd1" />
+
+    <select class="form-control btn-block" contenteditable="true" id="Fil">
+        @foreach (var pod in ViewBag.fil)
+        {
+            if (pod.IDFil == Model.IDFilial)
+            {
+                <option value="@pod.IDFil" selected> @pod.Filial1</option>
+            }
+            else
+            {
+                <option value="@pod.IDFil"> @pod.Filial1</option>
+            }
+        }
+    </select>
+
+    <label>Признак</label>
+    <input type="text" class="form-control btn-block" id="Priznak" value="@Model.Priznak" />
+
+
+
+</div>
+<div class="modal-footer" style="text-align:center">
+    <button type="submit" class="btn btn-info" style="min-width:100px" onclick="PodrEditSave(@Model.IDPodr)">Сохранить</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="min-width:100px">Отмена</button>
+</div>
+
+
+
+

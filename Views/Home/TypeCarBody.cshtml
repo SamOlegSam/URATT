@@ -1,0 +1,93 @@
+﻿@model IEnumerable<UchetAuto.Models.TypeCarBody>
+@{
+    ViewBag.Title = "TypeCarBody";
+}
+
+<h2>Список типов кузова</h2>
+
+<div id="ServicesModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" id='ServicesModalContent'>
+
+        </div>
+    </div>
+</div>
+
+<div id="ServicesModalDelete" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" id='ServicesModalDeleteContent'>
+
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<p>
+    <button type="button" class="btn btn-gradient waves-light waves-effect w-xs" onclick="AddTypeCarBody(0)"> Добавить тип кузова</button>
+</p>
+<hr>
+
+<style type="text/css">
+    TH {
+        background: #EFF5FB; /* Цвет фона */
+        border-bottom: double;
+    }
+
+    tr:nth-child(odd) {
+        background: #EFF5FB; /* Цвет фона */
+    }
+
+    tr:nth-child(even) {
+        background: #f0f8ff; /* Цвет фона */
+    }
+</style>
+
+
+
+<div id="tab">
+    <table class="table">
+                
+        <tr>
+            <th style="background-color:#f8fcff">
+                Номер
+            </th>
+            <th style="background-color:#f8fcff">
+                Тип кузова
+            </th>
+            <th style="background-color:#f8fcff">
+                Признак
+            </th>
+            
+
+            <th style="background-color:#f8fcff"></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr tr class="odd">
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDCarBody)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeCarBody1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priznak)
+                </td>
+                
+
+                <td>
+                    <button type="button" class="btn btn-icon waves-effect waves-light btn-info" title="Редактировать" onclick="TypeCarBodyEdit(@item.IDCarBody)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Удалить" onclick="DeleteTypeCarBody(@item.IDCarBody)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

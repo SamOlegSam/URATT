@@ -1,0 +1,309 @@
+﻿@model UchetAuto.Models.Voditel
+
+
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Общие</a></li>
+    <li><a data-toggle="tab" href="#passport">Паспорт</a></li>
+    <li><a data-toggle="tab" href="#VodUd">Водительское удостоверение</a></li>
+    <li><a data-toggle="tab" href="#VoenBilet">Военный билет</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active" style="margin-left:10px;">
+        <h3>Общие</h3>
+
+        <input type="hidden" class="form-control btn-block" id="ID" value="@Model.IDVod" />
+
+
+        <input type="hidden" class="form-control btn-block" id="IDPAS" value="@Model.IDPass" />
+
+
+        <input type="hidden" class="form-control btn-block" id="IDVU" value="@Model.IDVodUd" />
+
+
+        <input type="hidden" class="form-control btn-block" id="IDVB" value="@Model.IDVoen" />
+
+        <label>Табельный номер</label>
+        <input type="text" class="form-control btn-block" id="TabNumber" value="@Model.TabNumber" />
+
+        <label>Фамилия</label>
+        <input type="text" class="form-control btn-block" id="LastName" value="@Model.LastName" />
+
+        <label>Имя</label>
+        <input type="text" class="form-control btn-block" id="FirstName" value="@Model.FirstName" />
+
+        <label>Отчество</label>
+        <input type="text" class="form-control btn-block" id="MiddleName" value="@Model.MiddleName" />
+
+        <label>Дата рождения</label>
+
+        <input type="text" class="form-control btn-block" id="dateroj" value="@Model.Passport.DatRoj" />
+
+
+
+
+        <label>Мобильный телефон</label>
+        <input type="text" class="form-control btn-block" id="MobPhone" value="@Model.PhoneMob" />
+
+        <label>Городской телефон</label>
+        <input type="text" class="form-control btn-block" id="GorPhone" value="@Model.PhoneGor" />
+
+        <label>Дата прохождения медицинской комиссии</label>
+        <input type="text" class="form-control btn-block" id="dateMed" value="@Model.MedKomis" />
+
+        <label>Филиал</label>
+        @*@Html.DropDownList("Filial1", ViewBag.fil as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "Fil" })*@
+        <select class="form-control btn-block" contenteditable="true" id="Fil">
+            @foreach (var fil in ViewBag.fil)
+            {
+                if (fil.IDFil == Model.IDFil)
+                {
+                    <option value="@fil.IDFil" selected> @fil.Filial1</option>
+                }
+                else
+                {
+                    <option value="@fil.IDFil"> @fil.Filial1</option>
+                }
+            }
+        </select>
+
+        <label>Подразделение</label>
+        <select class="form-control btn-block" contenteditable="true" id="Podrazd">
+            @foreach (var podrazd in ViewBag.podrazd)
+            {
+                if (podrazd.IDPodr == Model.IDPodr)
+                {
+                    <option value="@podrazd.IDPodr" selected> @podrazd.Podrazd1</option>
+                }
+                else
+                {
+                    <option value="@podrazd.IDPodr"> @podrazd.Podrazd1</option>
+                }
+            }
+        </select>
+
+        <label>Должность</label>
+        <select class="form-control btn-block" contenteditable="true" id="Doljnost">
+            @foreach (var dolj in ViewBag.dolj)
+            {
+                if (dolj.IDDolj == Model.IDDolj)
+                {
+                    <option value="@dolj.IDDolj" selected> @dolj.Doljnost1</option>
+                }
+                else
+                {
+                    <option value="@dolj.IDDolj"> @dolj.Doljnost1</option>
+                }
+            }
+        </select>
+
+        <label>Класс</label>
+        <input type="text" class="form-control btn-block" id="Class" value="@Model.Klass" />
+
+    </div>
+    <div id="passport" class="tab-pane fade" style="margin-left:10px;">
+        <h3>Паспортные данные</h3>
+
+        <label>Личный номер</label>
+        <input type="text" class="form-control btn-block" id="IDNumber" value="@Model.Passport.IDNumber" />
+
+        <label>Серия</label>
+        <input type="text" class="form-control btn-block" id="Seria" value="@Model.Passport.Seria" />
+
+        <label>Номер</label>
+        <input type="text" class="form-control btn-block" id="Number" value="@Model.Passport.Number" />
+
+        <label>Адрес регистрации</label>
+        <input type="text" class="form-control btn-block" id="Propiska" value="@Model.Passport.Propis" />
+
+        <label>Адрес проживания</label>
+        <input type="text" class="form-control btn-block" id="Address" value="@Model.Address" />
+
+        <label>Кем выдан</label>
+        <input type="text" class="form-control btn-block" id="Vidan" value="@Model.Passport.Vidan" />
+
+        <label>Срок действия</label>
+        <input type="text" class="form-control btn-block" id="SrokD" value="@Model.Passport.Srok" />
+
+    </div>
+    <div id="VodUd" class="tab-pane fade" style="margin-left:10px;">
+        <h3>Водительское удостоверение</h3>
+
+        <label>Номер</label>
+        <input type="text" class="form-control btn-block" id="NumberVod" value="@Model.VodUd.Number" />
+
+        <label>Срок действия</label>
+        <input type="text" class="form-control" id="SrokDVodUd" value="@Model.VodUd.SrokD">
+
+        <label>Категории:</label>
+        
+
+        <table>
+            <tr>
+
+                <td style="padding:0.5em 0.5em;">
+                    AM:
+                    @if (Model.VodUd.AM == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="AM" value="AM">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="AM" value="AM">
+                    }
+
+                </td>
+
+                <td style="padding:0.5em 0.5em;">
+                    A:
+                    @if (Model.VodUd.A == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="A" value="A">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="A" value="A">
+                    }
+
+                </td>
+
+                <td style="padding:0.5em 0.5em;">
+                    A1:
+                    @if (Model.VodUd.A1 == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="A1" value="A1">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="A1" value="A1">
+                    }
+
+                </td>
+
+
+                <td style="padding:0.5em 0.5em;">
+                    B:
+                    @if (Model.VodUd.B == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="B" value="B">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="B" value="B">
+                    }
+                </td>
+
+
+                <td style="padding:0.5em 0.5em;">
+                    C:
+                    @if (Model.VodUd.C == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="C" value="C">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="C" value="C">
+                    }
+                </td>
+
+
+
+                <td style="padding:0.5em 0.5em;">
+                    D:
+                    @if (Model.VodUd.D == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="D" value="D">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="D" value="D">
+                    }
+                </td>
+
+
+
+                <td style="padding:0.5em 0.5em;">
+                    BE:
+                    @if (Model.VodUd.BE == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="BE" value="BE">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="BE" value="BE">
+                    }
+                </td>
+
+                <td style="padding:0.5em 0.5em;">
+                    CE:
+                    @if (Model.VodUd.CE == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="CE" value="CE">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="CE" value="CE">
+                    }
+                </td>
+
+                <td style="padding:0.5em 0.5em;">
+                    DE:
+                    @if (Model.VodUd.DE == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="DE" value="DE">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="DE" value="DE">
+                    }
+                </td>
+
+                <td style="padding:0.5em 0.5em;">
+                    F:
+                    @if (Model.VodUd.F == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="F" value="F">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="F" value="F">
+                    }
+                </td>
+
+                <td style="padding:0.5em 0.5em;">
+                    I:
+                    @if (Model.VodUd.I == null)
+                    {
+                        <input type="checkbox" name="inList" onchange="CountSelected()" id="I" value="I">
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="inList" checked onchange="CountSelected()" id="I" value="I">
+                    }
+
+                </td>
+
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="VoenBilet" class="tab-pane fade" style="margin-left:10px;">
+        <h3>Военный билет</h3>
+
+        <label>Номер</label>
+        <input type="text" class="form-control btn-block" id="NumberVoen" value="@Model.VoenBilet.Number" />
+
+        <label>Звание</label>
+        <input type="text" class="form-control btn-block" id="Zvanie" value="@Model.VoenBilet.Zvanie" />
+
+    </div>
+
+</div>
+
+<div class="modal-footer" style="text-align:center">
+    <button type="submit" class="btn btn-info" style="min-width:100px" onclick="DriverEditSave(@Model.IDVod)">Сохранить</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="min-width:100px">Отмена</button>
+</div>
+

@@ -1,0 +1,353 @@
+﻿@model UchetAuto.Models.Cars
+
+<style>
+
+    tr:nth-child(odd) {
+        background: #ffffff; /* Цвет фона */
+    }
+
+    tr:nth-child(even) {
+        background: #ffffff; /* Цвет фона */
+    }
+
+    td {
+        padding: 5px; /* Поля вокруг текста */
+    }
+
+    .tablesss {
+        width: 100%;
+        border-spacing: 12px 18px;
+    }
+</style>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Основные</a></li>
+    <li><a data-toggle="tab" href="#reference">Справочные параметры</a></li>
+    <li><a data-toggle="tab" href="#norm">Нормы</a></li>
+    <li><a data-toggle="tab" href="#oil">Масла/Присадки</a></li>
+</ul>
+
+<div class="tab-content" style="margin-right:10px;">
+    <div id="home" class="tab-pane fade in active" style="margin-left:10px;">
+        <h3>Основные</h3>
+
+        <input type="hidden" class="form-control btn-block" id="ID" value="@Model.IDCar" />
+
+        <label>Гаражный номер</label>
+        <input type="text" class="form-control btn-block" id="GarNumber" value="@Model.GarNumber" />
+
+        <label>Модель</label>
+        <input type="text" class="form-control btn-block" id="Model" value="@Model.Model" />
+
+        <label>Гос.номер</label>
+        <input type="text" class="form-control btn-block" id="NumberGos" value="@Model.NumberCar" />
+
+        <label>Водитель</label>
+        @*@Html.DropDownList("LastName", ViewBag.vod as SelectList, "Выберите водителя", new { @class = "form-control btn-block", id = "vod" })*@
+
+    <select class="form-control btn-block" contenteditable="true" id="vod">
+        @foreach (var vod in ViewBag.vod)
+        {
+            
+            if (vod.IDVod == Model.IDDriver)
+                    {
+                        <option value="@vod.IDVod" selected> @vod.LastName</option>
+                    }
+                    else
+                    {
+            <option value="@vod.IDVod" > @vod.LastName</option>
+                    }
+        }
+    </select>
+
+        <label>Филиал</label>
+        @*@Html.DropDownList("Filial1", ViewBag.fil as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "Fil" })*@
+
+        <select class="form-control btn-block" contenteditable="true" id="Fil">
+            @foreach (var fil in ViewBag.fil)
+            {
+                if (fil.IDFil == Model.IDFil)
+                {
+                    <option value="@fil.IDFil" selected> @fil.Filial1</option>
+                }
+                else
+                {
+                    <option value="@fil.IDFil"> @fil.Filial1</option>
+                }
+            }
+        </select>
+
+        <label>Дата поступления</label>
+        <input type="text" class="form-control btn-block" id="DatePost" value="@Model.DatePost"/>
+
+        <label>Дата прохождения техосмотра</label>
+        <input type="text" class="form-control btn-block" id="Tehosmotr" value="@Model.Tehosmotr"/>
+
+    </div>
+    <div id="reference" class="tab-pane fade" style="margin-left:10px;">
+        <h3>Справочные параметры</h3>
+
+        <label>Тип кузова атомобиля</label>
+        @*@Html.DropDownList("TypeCar1", ViewBag.car as SelectList, "Выберите тип автомобиля", new { @class = "form-control btn-block", id = "car" })*@
+
+        <select class="form-control btn-block" contenteditable="true" id="body">
+            @foreach (var body in ViewBag.body)
+            {
+                if (body.IDCarBody == Model.IDTypeCarBody)
+                {
+                    <option value="@body.IDCarBody" selected> @body.TypeCarBody1</option>
+                }
+                else
+                {
+                    <option value="@body.IDCarBody" > @body.TypeCarBody1</option>
+                }
+            }
+        </select>
+
+        <label>Тип автомобиля</label>
+        @*@Html.DropDownList("TypeCarBody1", ViewBag.body as SelectList, "Выберите тип кузова", new { @class = "form-control btn-block", id = "body" })*@
+
+        <select class="form-control btn-block" contenteditable="true" id="car">
+            @foreach (var car in ViewBag.typecar)
+            {
+                if (car.IDTypeCar == Model.IDTypeCar)
+                {
+                    <option value="@car.IDTypeCar" selected> @car.TypeCar1</option>
+                }
+                else
+                {
+                    <option value="@car.IDTypeCar"> @car.TypeCar1</option>
+                }
+            }
+        </select>
+
+        <label>Тип двигателя</label>
+        @*@Html.DropDownList("TypeMotor1", ViewBag.motor as SelectList, "Выберите тип двигателя", new { @class = "form-control btn-block", id = "motor" })*@
+
+        <select class="form-control btn-block" contenteditable="true" id="motor">
+            @foreach (var motor in ViewBag.motor)
+            {
+                if (motor.IDTypeMotor == Model.IDTypeMotor)
+                {
+                    <option value="@motor.IDTypeMotor" selected> @motor.TypeMotor1</option>
+                }
+                else
+                {
+                    <option value="@motor.IDTypeMotor"> @motor.TypeMotor1</option>
+                }
+            }
+        </select>
+
+        <label>Объем двигателя</label>
+        <input type="text" class="form-control btn-block" id="VMotor" value="@Model.VMotor"/>
+
+        <label>Год выпуска</label>
+        @*@Html.DropDownList("Year1", ViewBag.year as SelectList, "Выберите год выпуска", new { @class = "form-control btn-block", id = "year" })*@
+
+        <select class="form-control btn-block" contenteditable="true" id="year">
+            @foreach (var year in ViewBag.year)
+            {
+                if (year.IDYear == Model.IDYear)
+                {
+                    <option value="@year.IDYear" selected> @year.Year1</option>
+                }
+                else
+                {
+                    <option value="@year.IDYear"> @year.Year1</option>
+                }
+            }
+        </select>
+
+        <label>Грузоподъемность</label>
+        <input type="text" class="form-control btn-block" id="Gruzopod" value="@Model.Gruzopod"/>
+
+        <div class="row">
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                    <div class="col-sm-6">
+                        <label>Колес:</label>
+                        <input type="text" class="form-control btn-block" id="Whels" value="@Model.Whel"/>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <div class="col-sm-6">
+                        <label>Запасок:</label>
+                        <input type="text" class="form-control btn-block" id="Spare" value="@Model.Spare"/>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="btn-group">
+                    <div class="col-sm-3"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                    <div class="col-sm-12">
+                        <label>Одометр:</label>
+                        <input type="text" class="form-control btn-block" id="Odometer" value="@Model.Odometer"/>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <div class="col-sm-12">
+                        <label>Моточасы:</label>
+                        <input type="text" class="form-control btn-block" id="MotoHour" value="@Model.MotoHour"/>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <div class="col-sm-12"></div>
+                </div>
+                <div class="btn-group">
+                    <div class="col-sm-12"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <label>Тип топлива</label>
+        @*@Html.DropDownList("Fuel1", ViewBag.fuel as SelectList, "Выберите топливо", new { @class = "form-control btn-block", id = "fuel" })*@
+
+        <select class="form-control btn-block" contenteditable="true" id="fuel">
+            @foreach (var fuel in ViewBag.fuel)
+            {
+                if (fuel.IDFuel == Model.IDFuel)
+                {
+                    <option value="@fuel.IDFuel" selected> @fuel.Fuel1</option>
+                }
+                else
+                {
+                    <option value="@fuel.IDFuel"> @fuel.Fuel1</option>
+                }
+            }
+        </select>
+
+        <label>Емкость бака</label>
+        <input type="text" class="form-control btn-block" id="VTank" value="@Model.VTank"/>
+
+        <label>Остаток топлива в баке</label>
+        <input type="text" class="form-control btn-block" id="BalanceTank" value="@Model.BalanceTank"/>
+
+        <label>Линейная норма</label>
+        <input type="text" class="form-control btn-block" id="LinNorma" value="@Model.LinNorma"/>
+
+    </div>
+
+    <div id="norm" class="tab-pane fade" style="margin-left:10px;">
+        <h3>Нормы</h3>
+        <hr>
+        <h4 style="text-decoration: underline"><strong>Повышающие</strong></h4>
+
+        <label>С прицепом</label>
+        <input type="text" class="form-control btn-block" id="WithTrailer" value="@Model.WithTrailer"/>
+
+        <label>На 100 тонно/км</label>
+        <input type="text" class="form-control btn-block" id="Na100TonnKm" value="@Model.Na100TonnKm"/>
+
+        <label>Механизмы</label>
+        <input type="text" class="form-control btn-block" id="Mechanizm" value="@Model.Mechanizm"/>
+
+        <label>На отопитель</label>
+        <input type="text" class="form-control btn-block" id="Heater" value="@Model.Heater"/>
+        <hr>
+
+        <h4 style="text-decoration: underline"><strong>В %</strong></h4>
+
+        <div class="row">
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                    <div class="col-sm-12">
+                        <label>Город 100+</label>
+                        <input type="text" class="form-control btn-block" id="Gorod100" value="@Model.Gorod100"/>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <div class="col-sm-12">
+                        <label>Город 300+</label>
+                        <input type="text" class="form-control btn-block" id="Gorod300" value="@Model.Gorod300"/>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <div class="col-sm-12">
+                        <label>Город 1000+</label>
+                        <input type="text" class="form-control btn-block" id="Gorod1000" value="@Model.Gorod1000"/>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <div class="col-sm-12"></div>
+                </div>
+                <div class="btn-group">
+                    <div class="col-sm-12"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <label>С остановками</label>
+        <input type="text" class="form-control btn-block" id="WithStop" value="@Model.WithStop"/>
+
+        <label>Медленно</label>
+        <input type="text" class="form-control btn-block" id="Slowly" value="@Model.Slowly"/>
+
+        <label>Бездорожье</label>
+        <input type="text" class="form-control btn-block" id="Offroad" value="@Model.Offroad"/>
+
+        <label>По трассе</label>
+        <input type="text" class="form-control btn-block" id="Highway" value="@Model.Highway"/>
+
+        <label>Амортизация</label>
+        <input type="text" class="form-control btn-block" id="Amortiz" value="@Model.Amortiz"/>
+
+        <label>Кондиционер</label>
+        <input type="text" class="form-control btn-block" id="Conditioning" value="@Model.Conditioning"/>
+
+        <label>На генератор</label>
+        <input type="text" class="form-control btn-block" id="Generator" value="@Model.Generator"/>
+
+        <label>AddBlue</label>
+        <input type="text" class="form-control btn-block" id="AddBlue" value="@Model.AddBlue"/>
+
+        <label>По карьеру</label>
+        <input type="text" class="form-control btn-block" id="Career" value="@Model.Career"/>
+
+
+    </div>
+
+    <div id="oil" class="tab-pane fade" style="margin-left:10px;">
+        <h3>Нормы расхода масла и присадок</h3>
+
+        <label>Моторное</label>
+        <input type="text" class="form-control btn-block" id="OilMotor" />
+
+        <label>Трансмиссионное</label>
+        <input type="text" class="form-control btn-block" id="Transmission" />
+
+        <label>Специальное</label>
+        <input type="text" class="form-control btn-block" id="Spec" />
+
+        <label>Гидравлическое</label>
+        <input type="text" class="form-control btn-block" id="Hydravlic" />
+
+        <label>Присадки</label>
+        <input type="text" class="form-control btn-block" id="other" />
+
+
+    </div>
+
+</div>
+
+<div class="modal-footer" style="text-align:center">
+    <button type="submit" class="btn btn-info" style="min-width:100px" onclick="CarEditSave()">Сохранить</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="min-width:100px">Отмена</button>
+</div>
+
+
+

@@ -1,0 +1,303 @@
+﻿@model IEnumerable<UchetAuto.Models.Cars>
+@{
+    ViewBag.Title = "Cars";
+}
+
+<h2>Список автомобилей</h2>
+
+<div id="ServicesModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" id='ServicesModalContent'>
+
+        </div>
+    </div>
+</div>
+
+<div id="ServicesModalDelete" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" id='ServicesModalDeleteContent'>
+
+        </div>
+    </div>
+</div>
+
+<hr>
+<p>
+    <button type="button" class="btn btn-gradient waves-light waves-effect w-xs" onclick="AddCar(0)"> Добавить автомобиль</button>
+</p>
+<hr>
+<style type="text/css">
+    TH {
+        background: #EFF5FB; /* Цвет фона */
+        border-bottom: double;
+    }
+
+    tr:nth-child(odd) {
+        background: #EFF5FB; /* Цвет фона */
+    }
+
+    tr:nth-child(even) {
+        background: #f0f8ff; /* Цвет фона */
+    }
+</style>
+
+<div id="tab">
+    <table class="table">
+
+        <tr>
+            <td colspan="6" align="center" style="background-color:#f8fcff">
+                Основные
+            </td>
+
+            <td colspan="8" align="center" style="background-color:#f8f8ff">
+                Справочные параметры
+            </td>
+            <td colspan="16" align="center" style="background-color:#f8fcff">
+                Нормы
+            </td>
+
+            <td style="background-color:#f8fcff">
+
+            </td>
+            <td style="background-color:#f8fcff">
+            </td>
+        </tr>
+
+
+        <tr>
+            <th style="background-color:#f8fcff">
+                Гар.номер
+            </th>
+            <th style="background-color:#f8fcff">
+                Модель
+            </th>
+            <th style="background-color:#f8fcff">
+                Гос.номер
+            </th>
+            <th style="background-color:#f8fcff">
+                Год выпуска
+            </th>
+            <th style="background-color:#f8fcff">
+                Филиал
+            </th>
+            <th style="background-color:#f8fcff">
+                Дата техосмотра
+            </th>
+            <th style="background-color:#f8f8ff">
+                Тип авто
+            </th>
+            <th style="background-color:#f8f8ff">
+                Тип кузова
+            </th>
+            <th style="background-color:#f8f8ff">
+                Объем двигателя
+            </th>
+            <th style="background-color:#f8f8ff">
+                Одометр
+            </th>
+            <th style="background-color:#f8f8ff">
+                М/Ч
+            </th>
+            <th style="background-color:#f8f8ff">
+                Лин.норма
+            </th>
+            <th style="background-color:#f8f8ff">
+                Колес
+            </th>
+            <th style="background-color:#f8f8ff">
+                Запасок
+            </th>
+            <th style="background-color:#f8fcff">
+                Прицеп
+            </th>
+
+            <th style="background-color:#f8fcff">
+                100т/км
+            </th>
+
+            <th style="background-color:#f8fcff">
+                Механизм
+            </th>
+
+            <th style="background-color:#f8fcff">
+                100+
+            </th>
+
+            <th style="background-color:#f8fcff">
+                300+
+            </th>
+
+            <th style="background-color:#f8fcff">
+                1000+
+            </th>
+
+            <th style="background-color:#f8fcff">
+                остан.
+            </th>
+
+            <th style="background-color:#f8fcff">
+                медленно
+            </th>
+
+            <th style="background-color:#f8fcff">
+                бездорожье
+            </th>
+
+            <th style="background-color:#f8fcff">
+                трасса
+            </th>
+
+            <th style="background-color:#f8fcff">
+                амортиз.
+            </th>
+
+            <th style="background-color:#f8fcff">
+                кондиц.
+            </th>
+
+            <th style="background-color:#f8fcff">
+                отопитель
+            </th>
+
+            <th style="background-color:#f8fcff">
+                генерат.
+            </th>
+
+            <th style="background-color:#f8fcff">
+                AddBlue
+            </th>
+
+            <th style="background-color:#f8fcff">
+                карьер
+            </th>
+
+
+            <th style="background-color:#f8fcff">
+
+            </th>
+            <th style="background-color:#f8fcff">
+
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+
+    <tr tr class="odd">
+        <td>
+            @Html.DisplayFor(modelItem => item.GarNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberCar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year.Year1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Filial.Filial1)
+        </td>
+
+        @if (item.Tehosmotr <= DateTime.Now)
+        {
+            <td style="background-color:#FFC0CB; border-radius:15px;">
+                @Html.DisplayFor(modelItem => item.Tehosmotr)
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Tehosmotr)
+            </td>
+        }
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeCar.TypeCar1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeCarBody.TypeCarBody1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VMotor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Odometer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotoHour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinNorma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Whel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WithTrailer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Na100TonnKm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mechanizm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gorod100)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gorod300)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gorod1000)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WithStop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slowly)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Offroad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Highway)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amortiz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conditioning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Heater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Generator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddBlue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Career)
+        </td>
+
+        <td>
+            <button type="button" class="btn btn-icon waves-effect waves-light btn-info" title="Редактировать" onclick="CarEdit(@item.IDCar)">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Удалить" onclick="DeleteCar(@item.IDCar)">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </td>
+        <td>
+        </td>
+    </tr>
+        }
+    </table>
+</div>

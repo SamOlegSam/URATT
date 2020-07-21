@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище UchetAutoModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cars">
+    <Key>
+      <PropertyRef Name="IDCar" />
+    </Key>
+    <Property Name="IDCar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GarNumber" Type="nchar" MaxLength="100" />
+    <Property Name="Model" Type="nchar" MaxLength="100" />
+    <Property Name="NumberCar" Type="nchar" MaxLength="100" />
+    <Property Name="IDDriver" Type="int" />
+    <Property Name="IDFil" Type="int" />
+    <Property Name="DatePost" Type="date" />
+    <Property Name="Trailer" Type="nchar" MaxLength="10" />
+    <Property Name="IDTypeCar" Type="int" />
+    <Property Name="IDTypeMotor" Type="int" />
+    <Property Name="IDTypeCarBody" Type="int" />
+    <Property Name="VMotor" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DateVipusk" Type="date" />
+    <Property Name="Gruzopod" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Whel" Type="int" />
+    <Property Name="Spare" Type="int" />
+    <Property Name="Odometer" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MotoHour" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IDFuel" Type="int" />
+    <Property Name="VTank" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BalanceTank" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LinNorma" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WithTrailer" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Na100TonnKm" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Mechanizm" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Gorod100" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Gorod300" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Gorod1000" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WithStop" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Slowly" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Offroad" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Highway" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amortiz" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Conditioning" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Heater" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AddBlue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Career" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Tehosmotr" Type="date" />
+    <Property Name="IDYear" Type="int" />
+    <Property Name="Generator" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Doljnost">
+    <Key>
+      <PropertyRef Name="IDDolj" />
+    </Key>
+    <Property Name="IDDolj" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Doljnost" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Filial">
+    <Key>
+      <PropertyRef Name="IDFil" />
+    </Key>
+    <Property Name="IDFil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Filial" Type="char" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Fuel">
+    <Key>
+      <PropertyRef Name="IDFuel" />
+    </Key>
+    <Property Name="IDFuel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fuel" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Passport">
+    <Key>
+      <PropertyRef Name="IDPas" />
+    </Key>
+    <Property Name="IDPas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNumber" Type="nchar" MaxLength="100" />
+    <Property Name="Seria" Type="nchar" MaxLength="10" />
+    <Property Name="Number" Type="nchar" MaxLength="100" />
+    <Property Name="DatRoj" Type="date" />
+    <Property Name="Propis" Type="nchar" MaxLength="100" />
+    <Property Name="Vidan" Type="nchar" MaxLength="100" />
+    <Property Name="Srok" Type="date" />
+    <Property Name="Priznak1" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak2" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak3" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Podrazd">
+    <Key>
+      <PropertyRef Name="IDPodr" />
+    </Key>
+    <Property Name="IDPodr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Podrazd" Type="nchar" MaxLength="100" />
+    <Property Name="IDFilial" Type="int" />
+    <Property Name="Priznak" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypeCar">
+    <Key>
+      <PropertyRef Name="IDTypeCar" />
+    </Key>
+    <Property Name="IDTypeCar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeCar" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TypeCarBody">
+    <Key>
+      <PropertyRef Name="IDCarBody" />
+    </Key>
+    <Property Name="IDCarBody" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeCarBody" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TypeMotor">
+    <Key>
+      <PropertyRef Name="IDTypeMotor" />
+    </Key>
+    <Property Name="IDTypeMotor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeMotor" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Voditel">
+    <Key>
+      <PropertyRef Name="IDVod" />
+    </Key>
+    <Property Name="IDVod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="100" />
+    <Property Name="FirstName" Type="nchar" MaxLength="100" />
+    <Property Name="MiddleName" Type="nchar" MaxLength="100" />
+    <Property Name="Address" Type="nchar" MaxLength="100" />
+    <Property Name="PhoneGor" Type="nchar" MaxLength="100" />
+    <Property Name="PhoneMob" Type="nchar" MaxLength="100" />
+    <Property Name="IDFil" Type="int" />
+    <Property Name="IDPass" Type="int" />
+    <Property Name="IDVodUd" Type="int" />
+    <Property Name="IDVoen" Type="int" />
+    <Property Name="MedKomis" Type="date" />
+    <Property Name="Priznak1" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak2" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak3" Type="nchar" MaxLength="100" />
+    <Property Name="TabNumber" Type="nchar" MaxLength="20" />
+    <Property Name="IDDolj" Type="int" />
+    <Property Name="IDPodr" Type="int" />
+    <Property Name="Klass" Type="int" />
+  </EntityType>
+  <EntityType Name="VodUd">
+    <Key>
+      <PropertyRef Name="IDVUd" />
+    </Key>
+    <Property Name="IDVUd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nchar" MaxLength="100" />
+    <Property Name="Cateroria" Type="nchar" MaxLength="100" />
+    <Property Name="SrokD" Type="date" />
+    <Property Name="Priznak1" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak2" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak3" Type="nchar" MaxLength="100" />
+    <Property Name="AM" Type="nchar" MaxLength="10" />
+    <Property Name="A" Type="nchar" MaxLength="10" />
+    <Property Name="A1" Type="nchar" MaxLength="10" />
+    <Property Name="B" Type="nchar" MaxLength="10" />
+    <Property Name="C" Type="nchar" MaxLength="10" />
+    <Property Name="D" Type="nchar" MaxLength="10" />
+    <Property Name="BE" Type="nchar" MaxLength="10" />
+    <Property Name="CE" Type="nchar" MaxLength="10" />
+    <Property Name="DE" Type="nchar" MaxLength="10" />
+    <Property Name="F" Type="nchar" MaxLength="10" />
+    <Property Name="I" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="VoenBilet">
+    <Key>
+      <PropertyRef Name="IDVoen" />
+    </Key>
+    <Property Name="IDVoen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nchar" MaxLength="100" />
+    <Property Name="Zvanie" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak1" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak2" Type="nchar" MaxLength="100" />
+    <Property Name="Priznak3" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Year">
+    <Key>
+      <PropertyRef Name="IDYear" />
+    </Key>
+    <Property Name="IDYear" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="int" />
+  </EntityType>
+  <Association Name="FK_Cars_Filial">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="IDFil" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="IDFil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_Fuel">
+    <End Role="Fuel" Type="Self.Fuel" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fuel">
+        <PropertyRef Name="IDFuel" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="IDFuel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_TypeCar">
+    <End Role="TypeCar" Type="Self.TypeCar" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCar">
+        <PropertyRef Name="IDTypeCar" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="IDTypeCar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_TypeCarBody">
+    <End Role="TypeCarBody" Type="Self.TypeCarBody" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCarBody">
+        <PropertyRef Name="IDCarBody" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="IDTypeCarBody" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_TypeMotor">
+    <End Role="TypeMotor" Type="Self.TypeMotor" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeMotor">
+        <PropertyRef Name="IDTypeMotor" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="IDTypeMotor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_Voditel">
+    <End Role="Voditel" Type="Self.Voditel" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voditel">
+        <PropertyRef Name="IDVod" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="IDDriver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_Year">
+    <End Role="Year" Type="Self.Year" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Year">
+        <PropertyRef Name="IDYear" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="IDYear" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Podrazd_Filial">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="0..1" />
+    <End Role="Podrazd" Type="Self.Podrazd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="IDFil" />
+      </Principal>
+      <Dependent Role="Podrazd">
+        <PropertyRef Name="IDFilial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voditel_Doljnost">
+    <End Role="Doljnost" Type="Self.Doljnost" Multiplicity="0..1" />
+    <End Role="Voditel" Type="Self.Voditel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doljnost">
+        <PropertyRef Name="IDDolj" />
+      </Principal>
+      <Dependent Role="Voditel">
+        <PropertyRef Name="IDDolj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voditel_Filial">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="0..1" />
+    <End Role="Voditel" Type="Self.Voditel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="IDFil" />
+      </Principal>
+      <Dependent Role="Voditel">
+        <PropertyRef Name="IDFil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voditel_Passport">
+    <End Role="Passport" Type="Self.Passport" Multiplicity="0..1" />
+    <End Role="Voditel" Type="Self.Voditel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passport">
+        <PropertyRef Name="IDPas" />
+      </Principal>
+      <Dependent Role="Voditel">
+        <PropertyRef Name="IDPass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voditel_Podrazd">
+    <End Role="Podrazd" Type="Self.Podrazd" Multiplicity="0..1" />
+    <End Role="Voditel" Type="Self.Voditel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Podrazd">
+        <PropertyRef Name="IDPodr" />
+      </Principal>
+      <Dependent Role="Voditel">
+        <PropertyRef Name="IDPodr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voditel_VodUd">
+    <End Role="VodUd" Type="Self.VodUd" Multiplicity="0..1" />
+    <End Role="Voditel" Type="Self.Voditel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VodUd">
+        <PropertyRef Name="IDVUd" />
+      </Principal>
+      <Dependent Role="Voditel">
+        <PropertyRef Name="IDVodUd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voditel_VoenBilet">
+    <End Role="VoenBilet" Type="Self.VoenBilet" Multiplicity="0..1" />
+    <End Role="Voditel" Type="Self.Voditel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VoenBilet">
+        <PropertyRef Name="IDVoen" />
+      </Principal>
+      <Dependent Role="Voditel">
+        <PropertyRef Name="IDVoen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище UchetAutoModelContainer">
+    <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doljnost" EntityType="Self.Doljnost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Filial" EntityType="Self.Filial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fuel" EntityType="Self.Fuel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Podrazd" EntityType="Self.Podrazd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeCar" EntityType="Self.TypeCar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeCarBody" EntityType="Self.TypeCarBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeMotor" EntityType="Self.TypeMotor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voditel" EntityType="Self.Voditel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VodUd" EntityType="Self.VodUd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VoenBilet" EntityType="Self.VoenBilet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cars_Filial" Association="Self.FK_Cars_Filial">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_Fuel" Association="Self.FK_Cars_Fuel">
+      <End Role="Fuel" EntitySet="Fuel" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_TypeCar" Association="Self.FK_Cars_TypeCar">
+      <End Role="TypeCar" EntitySet="TypeCar" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_TypeCarBody" Association="Self.FK_Cars_TypeCarBody">
+      <End Role="TypeCarBody" EntitySet="TypeCarBody" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_TypeMotor" Association="Self.FK_Cars_TypeMotor">
+      <End Role="TypeMotor" EntitySet="TypeMotor" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_Voditel" Association="Self.FK_Cars_Voditel">
+      <End Role="Voditel" EntitySet="Voditel" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_Year" Association="Self.FK_Cars_Year">
+      <End Role="Year" EntitySet="Year" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Podrazd_Filial" Association="Self.FK_Podrazd_Filial">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="Podrazd" EntitySet="Podrazd" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voditel_Doljnost" Association="Self.FK_Voditel_Doljnost">
+      <End Role="Doljnost" EntitySet="Doljnost" />
+      <End Role="Voditel" EntitySet="Voditel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voditel_Filial" Association="Self.FK_Voditel_Filial">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="Voditel" EntitySet="Voditel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voditel_Passport" Association="Self.FK_Voditel_Passport">
+      <End Role="Passport" EntitySet="Passport" />
+      <End Role="Voditel" EntitySet="Voditel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voditel_Podrazd" Association="Self.FK_Voditel_Podrazd">
+      <End Role="Podrazd" EntitySet="Podrazd" />
+      <End Role="Voditel" EntitySet="Voditel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voditel_VodUd" Association="Self.FK_Voditel_VodUd">
+      <End Role="VodUd" EntitySet="VodUd" />
+      <End Role="Voditel" EntitySet="Voditel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voditel_VoenBilet" Association="Self.FK_Voditel_VoenBilet">
+      <End Role="VoenBilet" EntitySet="VoenBilet" />
+      <End Role="Voditel" EntitySet="Voditel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище UchetAutoModelContainer" CdmEntityContainer="UchetAutoEntities">
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="UchetAutoModel.Cars">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="IDCar" ColumnName="IDCar" />
+          <ScalarProperty Name="GarNumber" ColumnName="GarNumber" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="NumberCar" ColumnName="NumberCar" />
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="IDFil" ColumnName="IDFil" />
+          <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+          <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+          <ScalarProperty Name="IDTypeCar" ColumnName="IDTypeCar" />
+          <ScalarProperty Name="IDTypeMotor" ColumnName="IDTypeMotor" />
+          <ScalarProperty Name="IDTypeCarBody" ColumnName="IDTypeCarBody" />
+          <ScalarProperty Name="VMotor" ColumnName="VMotor" />
+          <ScalarProperty Name="DateVipusk" ColumnName="DateVipusk" />
+          <ScalarProperty Name="Gruzopod" ColumnName="Gruzopod" />
+          <ScalarProperty Name="Whel" ColumnName="Whel" />
+          <ScalarProperty Name="Spare" ColumnName="Spare" />
+          <ScalarProperty Name="Odometer" ColumnName="Odometer" />
+          <ScalarProperty Name="MotoHour" ColumnName="MotoHour" />
+          <ScalarProperty Name="IDFuel" ColumnName="IDFuel" />
+          <ScalarProperty Name="VTank" ColumnName="VTank" />
+          <ScalarProperty Name="BalanceTank" ColumnName="BalanceTank" />
+          <ScalarProperty Name="LinNorma" ColumnName="LinNorma" />
+          <ScalarProperty Name="WithTrailer" ColumnName="WithTrailer" />
+          <ScalarProperty Name="Na100TonnKm" ColumnName="Na100TonnKm" />
+          <ScalarProperty Name="Mechanizm" ColumnName="Mechanizm" />
+          <ScalarProperty Name="Gorod100" ColumnName="Gorod100" />
+          <ScalarProperty Name="Gorod300" ColumnName="Gorod300" />
+          <ScalarProperty Name="Gorod1000" ColumnName="Gorod1000" />
+          <ScalarProperty Name="WithStop" ColumnName="WithStop" />
+          <ScalarProperty Name="Slowly" ColumnName="Slowly" />
+          <ScalarProperty Name="Offroad" ColumnName="Offroad" />
+          <ScalarProperty Name="Highway" ColumnName="Highway" />
+          <ScalarProperty Name="Amortiz" ColumnName="Amortiz" />
+          <ScalarProperty Name="Conditioning" ColumnName="Conditioning" />
+          <ScalarProperty Name="Heater" ColumnName="Heater" />
+          <ScalarProperty Name="AddBlue" ColumnName="AddBlue" />
+          <ScalarProperty Name="Career" ColumnName="Career" />
+          <ScalarProperty Name="Tehosmotr" ColumnName="Tehosmotr" />
+          <ScalarProperty Name="IDYear" ColumnName="IDYear" />
+          <ScalarProperty Name="Generator" ColumnName="Generator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doljnost">
+      <EntityTypeMapping TypeName="UchetAutoModel.Doljnost">
+        <MappingFragment StoreEntitySet="Doljnost">
+          <ScalarProperty Name="IDDolj" ColumnName="IDDolj" />
+          <ScalarProperty Name="Doljnost1" ColumnName="Doljnost" />
+          <ScalarProperty Name="Priznak" ColumnName="Priznak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filial">
+      <EntityTypeMapping TypeName="UchetAutoModel.Filial">
+        <MappingFragment StoreEntitySet="Filial">
+          <ScalarProperty Name="IDFil" ColumnName="IDFil" />
+          <ScalarProperty Name="Filial1" ColumnName="Filial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fuel">
+      <EntityTypeMapping TypeName="UchetAutoModel.Fuel">
+        <MappingFragment StoreEntitySet="Fuel">
+          <ScalarProperty Name="IDFuel" ColumnName="IDFuel" />
+          <ScalarProperty Name="Fuel1" ColumnName="Fuel" />
+          <ScalarProperty Name="Priznak" ColumnName="Priznak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passport">
+      <EntityTypeMapping TypeName="UchetAutoModel.Passport">
+        <MappingFragment StoreEntitySet="Passport">
+          <ScalarProperty Name="IDPas" ColumnName="IDPas" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="Seria" ColumnName="Seria" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="DatRoj" ColumnName="DatRoj" />
+          <ScalarProperty Name="Propis" ColumnName="Propis" />
+          <ScalarProperty Name="Vidan" ColumnName="Vidan" />
+          <ScalarProperty Name="Srok" ColumnName="Srok" />
+          <ScalarProperty Name="Priznak1" ColumnName="Priznak1" />
+          <ScalarProperty Name="Priznak2" ColumnName="Priznak2" />
+          <ScalarProperty Name="Priznak3" ColumnName="Priznak3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Podrazd">
+      <EntityTypeMapping TypeName="UchetAutoModel.Podrazd">
+        <MappingFragment StoreEntitySet="Podrazd">
+          <ScalarProperty Name="IDPodr" ColumnName="IDPodr" />
+          <ScalarProperty Name="Podrazd1" ColumnName="Podrazd" />
+          <ScalarProperty Name="IDFilial" ColumnName="IDFilial" />
+          <ScalarProperty Name="Priznak" ColumnName="Priznak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="UchetAutoModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeCar">
+      <EntityTypeMapping TypeName="UchetAutoModel.TypeCar">
+        <MappingFragment StoreEntitySet="TypeCar">
+          <ScalarProperty Name="IDTypeCar" ColumnName="IDTypeCar" />
+          <ScalarProperty Name="TypeCar1" ColumnName="TypeCar" />
+          <ScalarProperty Name="Priznak" ColumnName="Priznak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeCarBody">
+      <EntityTypeMapping TypeName="UchetAutoModel.TypeCarBody">
+        <MappingFragment StoreEntitySet="TypeCarBody">
+          <ScalarProperty Name="IDCarBody" ColumnName="IDCarBody" />
+          <ScalarProperty Name="TypeCarBody1" ColumnName="TypeCarBody" />
+          <ScalarProperty Name="Priznak" ColumnName="Priznak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeMotor">
+      <EntityTypeMapping TypeName="UchetAutoModel.TypeMotor">
+        <MappingFragment StoreEntitySet="TypeMotor">
+          <ScalarProperty Name="IDTypeMotor" ColumnName="IDTypeMotor" />
+          <ScalarProperty Name="TypeMotor1" ColumnName="TypeMotor" />
+          <ScalarProperty Name="Priznak" ColumnName="Priznak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voditel">
+      <EntityTypeMapping TypeName="UchetAutoModel.Voditel">
+        <MappingFragment StoreEntitySet="Voditel">
+          <ScalarProperty Name="IDVod" ColumnName="IDVod" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneGor" ColumnName="PhoneGor" />
+          <ScalarProperty Name="PhoneMob" ColumnName="PhoneMob" />
+          <ScalarProperty Name="IDFil" ColumnName="IDFil" />
+          <ScalarProperty Name="IDPass" ColumnName="IDPass" />
+          <ScalarProperty Name="IDVodUd" ColumnName="IDVodUd" />
+          <ScalarProperty Name="IDVoen" ColumnName="IDVoen" />
+          <ScalarProperty Name="MedKomis" ColumnName="MedKomis" />
+          <ScalarProperty Name="Priznak1" ColumnName="Priznak1" />
+          <ScalarProperty Name="Priznak2" ColumnName="Priznak2" />
+          <ScalarProperty Name="Priznak3" ColumnName="Priznak3" />
+          <ScalarProperty Name="TabNumber" ColumnName="TabNumber" />
+          <ScalarProperty Name="IDDolj" ColumnName="IDDolj" />
+          <ScalarProperty Name="IDPodr" ColumnName="IDPodr" />
+          <ScalarProperty Name="Klass" ColumnName="Klass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VodUd">
+      <EntityTypeMapping TypeName="UchetAutoModel.VodUd">
+        <MappingFragment StoreEntitySet="VodUd">
+          <ScalarProperty Name="IDVUd" ColumnName="IDVUd" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Cateroria" ColumnName="Cateroria" />
+          <ScalarProperty Name="SrokD" ColumnName="SrokD" />
+          <ScalarProperty Name="Priznak1" ColumnName="Priznak1" />
+          <ScalarProperty Name="Priznak2" ColumnName="Priznak2" />
+          <ScalarProperty Name="Priznak3" ColumnName="Priznak3" />
+          <ScalarProperty Name="AM" ColumnName="AM" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="A1" ColumnName="A1" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="C" ColumnName="C" />
+          <ScalarProperty Name="D" ColumnName="D" />
+          <ScalarProperty Name="BE" ColumnName="BE" />
+          <ScalarProperty Name="CE" ColumnName="CE" />
+          <ScalarProperty Name="DE" ColumnName="DE" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="I" ColumnName="I" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VoenBilet">
+      <EntityTypeMapping TypeName="UchetAutoModel.VoenBilet">
+        <MappingFragment StoreEntitySet="VoenBilet">
+          <ScalarProperty Name="IDVoen" ColumnName="IDVoen" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Zvanie" ColumnName="Zvanie" />
+          <ScalarProperty Name="Priznak1" ColumnName="Priznak1" />
+          <ScalarProperty Name="Priznak2" ColumnName="Priznak2" />
+          <ScalarProperty Name="Priznak3" ColumnName="Priznak3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Year">
+      <EntityTypeMapping TypeName="UchetAutoModel.Year">
+        <MappingFragment StoreEntitySet="Year">
+          <ScalarProperty Name="IDYear" ColumnName="IDYear" />
+          <ScalarProperty Name="Year1" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище UchetAutoModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище UchetAutoModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище UchetAutoModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище UchetAutoModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UchetAutoModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище UchetAutoModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UchetAutoModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище UchetAutoModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище UchetAutoModel.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
